@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+{% block body %}
+
+
+
+<div class="login-box">
+    
+    {% if page == 'login'%}
+    
+<form method="POST" action ="">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1"  class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+   
+    <button type="submit" class="btn btn-outline-success  button-css">Login</button>
+  </form>
+  <p class="text-center">Haven't sign up yet? 
+    <a class="text-success" href="{% url 'register' %}">Register Now</a></p>
+  {% else %}
+    
+  
+  
+  <div class="form-box" >
+     <form method="POST" action ="" >
+        {% csrf_token %}
+        <label for="form-imput1">UserName</label>
+        {{form.username}}
+        <label for="id_password1">Password</label>
+        {{form.password1}}
+        <label for="id_password2">Confirm Password</label>
+        {{form.password2}}
+    
+        <input type="submit" class="btn btn-outline-success button-css" value="Register">
+     </form> 
+        
+
+     <p class="text-center">Already Sign Up? 
+        <a class="text-success" href="{% url 'login' %}">Log In Here</a></p>
+
+    
+   </div>
+
+
+
+
+  
+  
+</div>
+{% endif %}
+{% endblock body %}
+

@@ -64,6 +64,7 @@ select:-webkit-autofill {
 
 body {
     background: var(--backgroundColor);
+    overflow-x: hidden;
 }
 
 .header {
